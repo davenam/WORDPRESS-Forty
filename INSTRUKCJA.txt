@@ -1,0 +1,139 @@
+1. tworzymy style.css
+2. tworzymy index.php
+3. z index.html przekopiowujemy wszystko do index.php
+4. kasujemy index.html
+5.  --> INDEX.PHP -->
+
+zamieniamy 
+/assets 
+
+na: -> <?php bloginfo('template_directory'); ?>/assets/
+
+zamieniamy
+/images
+
+na:  ->   <?php bloginfo('template_directory'); ?>/images/
+
+
+przed koncem </body> dodajemy:  <?php wp_footer(); ?>
+a przed koncem 	</head> dodajemy:  <?php wp_head(); ?>
+
+
+6. dzielimy na header i footer
+
+
+wycinamy kod i wklejamy do header.php  i  footer.php 
+odpowiednio
+
+a w index.php dodajemy 
+<?php
+	get_header();
+?>
+
+<?php
+	get_footer();
+?>
+
+
+7.  w HEADER.php zmieniamy title  <?php wp_title(); ?>
+
+8.  do singular.php  wrzucamy sekcje <-- MAIN --> z pliku GENERIC.HTML + wp_header + wp_footer i dodajemy  wp_title  oraz <?php the_content(); ?>  na srodku
+
+9. INDEX.php   <!-- 9. tutaj wrzucamy sobie pęlę --> + inne
+
+10.  musimy utworzyc functions.php 
+
+            <?php register_my_menu() {
+    
+                register_nav_menu( 'header-menu', __('Menu Głowne'));                    // __()   pozwalaja na przetlumaczenie tego elementu na dowolny jezyk w wordpress
+
+            } 
+
+            add_action('init', 'register_my_menu');
+
+?> 
+
+oraz w header.php  dodac linijke:  
+
+ <?php wp_nav_menu(array(           
+'theme_location' => 'header-menu',
+'menu_class' => 'links'
+)); ?>  
+
+
+
+11.   
+do functioncs.php  dodajemy fukcje uruchamiajaca widgety tak abysmy mogli wlaczyc formularz kontaktowy przy pomocy naszej wtyczki Contact Form 7
+
+w footer.php  usuwamy sobie wbudowany formularz kontaktowy 
+i dodajemy <?php dynamic_sidebar('footer_widget'); ?>
+
+
+12.  instalujemy sobie wtyczke Tooltypes
+dodajemy nowe
+Pole kontaktu w stopce
+slug:  pole-kontaktu
+
+- robimy sobie pierwszy wpis: Email
+- tworzymy nowy plik:  pole-kontaktu.php
+                        i wpisujemy:
+<section>
+    <div class="contact-method">
+    	<span class="icon alt fa-envelope"></span>
+    	<h3><?php the_title(); ?></h3>                // pkt 12
+    	<?php the_content(); ?>
+    </div>
+</section>
+
+oraz single-pole-kontaktu.php    ( zobaczyc w pliku)
+
+
+kopiujemy sobie archive.php z innego szablonu i zmieniamy
+get_template_part( 'pole-kontaktu' );
+
+
+tworzymy pole-kontaktu.php  i w srodku to samo co  single-pole-kontaktu.php
+
+
+13. DLA KAFELKA powtarzamy powyzsze kroki
+
+
+
+14. w WP  w Toolset -> Pola Wpisu  dodajemy sobie nowa grupę dla ikonek kontaktowy
+        ( pole WYBIERZ / SELECT )
+        dodajemy sobie ikonki odczytujac nazwy ich z pliku php
+        np. fa-phone   itd
+        
+        nastepnie w odpowiednich Polach Kontaktow ( email, telefon ) przypisujemy te ikonki.
+        
+        
+        
+15.
+
+Nowa grupa wpisów dla Kafelków:
+
+1. Pole typu POJEDYNCZA LINIA o nazwie " Slogan "
+2. Pole typu SELECT  o nazwie " Kolorystyka " + pola obrazków od 01 do 06  (tak mamy w index.php )
+3. Pole typu URL o nazwie " Odnośnik "
+
+
+
+
+16.  usuwamy z footer te elementy
+
+i wstawiamy fukcję 
+
+
+17.  usuwamy z index.php  oryginalne kafelki
+    i wstawiamy fukcje zeby pobierał nasze 
+    
+    
+    
+--------------------------------------------------------------------------------
+
+
+
+
+
+
+	
