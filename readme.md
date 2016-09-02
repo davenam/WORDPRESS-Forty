@@ -13,7 +13,8 @@ Download any template from  html5up.net and convert it into Wordpress Template
 
 ## Converted & Ready Screenshot
 
-![forty_david](https://cloud.githubusercontent.com/assets/20269246/18164643/4da3104c-7041-11e6-8e9d-0b4751d3f57d.jpg)
+![fourty_david](https://cloud.githubusercontent.com/assets/20269246/18201675/c9f7c438-710b-11e6-916f-3c6fb8575d5a.jpg)
+
 
 
 ### License
